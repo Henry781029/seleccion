@@ -3,7 +3,7 @@ package convocatoria;
 public class Jugador extends Seleccion{
     private int id;
 
-    public Jugador() {
+    public Jugador(int id) {
     }
 
     public int getId() {
