@@ -174,7 +174,9 @@ public class Programador {
                     editarJugador();
                     break;
                 case 4:
+                    System.out.println("**********CONVOCADOS*********");
                     mostrarTablaJugadores();
+                    System.out.println("*****************************");
                     break;
                 case 5:
                     flag = false;
