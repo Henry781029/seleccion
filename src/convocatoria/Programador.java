@@ -66,7 +66,7 @@ public class Programador {
             System.out.println("ingrese el Id a modificar:");
             int id = parseInt(inputData.nextLine());
 
-            if(id == jugadorDB.get(contador).getId()){
+            if(id == jugadorDB.get(contador).getId()+1){
                 System.out.println("id pertenece al Jugador:" + jugadorDB.get(contador).getNombre()
                                    + " " + jugadorDB.get(contador).getApellidos());
                 boolean flag = true;
