@@ -40,26 +40,86 @@ public class Programador {
     }
 
     public void buscarJugador(){
-
-
         for (int contador = 0; contador<jugadorDB.size(); contador++ ){
             System.out.println("Ingrese Dorsal:");
             int nro_camiseta = parseInt(inputData.nextLine());
-            Jugador dorsal = new Jugador();
-            dorsal.setNro_camiseta(nro_camiseta);
             if(nro_camiseta == jugadorDB.get(contador).getNro_camiseta()){
                 System.out.println("Corresponde al Jugador:" + jugadorDB.get(contador).getNombre() +" "+
                                     jugadorDB.get(contador).getApellidos());
             }else{
                 System.out.println("La dorsal no existe para ningun jugador");
-
             }
-            break;
         }
-
     }
 
     public void editarJugador(){
+        for (int contador = 0; contador < jugadorDB.size(); contador++){
+            System.out.println("ingrese el Id a modificar:");
+            int id = parseInt(inputData.nextLine());
+            if(id == jugadorDB.get(contador).getId()){
+                System.out.println("id pertenece al Jugador:" + jugadorDB.get(contador).getNombre()
+                                   + " " + jugadorDB.get(contador).getApellidos());
+                boolean flag = true;
+                while (flag){
+                System.out.println(" ");
+                System.out.println("Que informacion desea Modificar de el jugador:" );
+                System.out.println(" ");
+
+                    System.out.println("1. Dorsal");
+                    System.out.println("2. Nombre");
+                    System.out.println("3. Apellido");
+                    System.out.println("4. Posición");
+                    System.out.println("5. Edad");
+                    System.out.println("6. Equipo");
+                    System.out.println("7. Ninguna");
+                    int opciones = parseInt(inputData.nextLine());
+                    switch (opciones){
+                        case 1:
+                            System.out.println("ingrese nueva Dorsal:");
+                            int nuevaDorsal;
+                            nuevaDorsal = parseInt(inputData.nextLine());
+                            jugadorDB.get(contador).setId(nuevaDorsal);
+                            break;
+                        case 2:
+                            System.out.println("ingrese nuevo Nombre:");
+                            String nuevoNombre;
+                            nuevoNombre = inputData.nextLine();
+                            jugadorDB.get(contador).getNombre(nuevoNombre);
+                            break;
+                        case 3:
+                            System.out.println("ingrese nuevo Apellido:");
+                            String nuevoApellido;
+                            nuevoApellido = inputData.nextLine();
+                            jugadorDB.get(contador).getApellidos(nuevoApellido);
+                            break;
+                        case 4:
+                            System.out.println("ingrese nueva Posición:");
+                            String nuevaPosicion;
+                            nuevaPosicion = inputData.nextLine();
+                            jugadorDB.get(contador).getPosicion(nuevaPosicion);
+                            break;
+                        case 5:
+                            System.out.println("ingrese nueva Edad:");
+                            int nuevaEdad;
+                            nuevaEdad = parseInt(inputData.nextLine());
+                            jugadorDB.get(contador).getEdad(nuevaEdad);
+                            break;
+                        case 6:
+                            System.out.println("ingrese nuevo Equipo:");
+                            String nuevoEquipo;
+                            nuevoEquipo = inputData.nextLine();
+                            jugadorDB.get(contador).getEquipo_actual(nuevoEquipo);
+                            break;
+                        case 7:
+                            flag = false;
+                            break;
+                    }
+
+                    }
+            }else{
+                System.out.println("Id de Jugador no Existe!!!");
+            }
+        }
 
     }
 
