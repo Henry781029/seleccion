@@ -1,6 +1,7 @@
 package convocatoria;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import  java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
@@ -17,7 +18,9 @@ public class Programador {
     public void agregarJugador(){
         System.out.println("ingrese el Id:");
         int id = parseInt(inputData.nextLine());
+
         Jugador jugador = new Jugador(id);
+
         System.out.println("Ingrese Dorsal:");
         int nro_camiseta = parseInt(inputData.nextLine());
         jugador.setNro_camiseta(nro_camiseta);
@@ -40,12 +43,17 @@ public class Programador {
     }
 
     public void buscarJugador(){
-        for (int contador = 0; contador<jugadorDB.size(); contador++ ){
-            System.out.println("Ingrese Dorsal:");
-            int nro_camiseta = parseInt(inputData.nextLine());
-            if(nro_camiseta == jugadorDB.get(contador).getNro_camiseta()){
-                System.out.println("Corresponde al Jugador:" + jugadorDB.get(contador).getNombre() +" "+
-                                    jugadorDB.get(contador).getApellidos());
+        System.out.println("Ingrese Dorsal:");
+        int nro_camiseta = parseInt(inputData.nextLine());
+        int dorsal = 0;
+
+        Iterator<Jugador>camiseta = jugadorDB.iterator();
+
+        while (camiseta.hasNext()){
+            Jugador jugador = camiseta.next();
+            if(nro_camiseta == jugadorDB.get(dorsal).getNro_camiseta()){
+                System.out.println("Corresponde al Jugador:" + jugadorDB.get(dorsal).getNombre() +" "+
+                        jugadorDB.get(dorsal).getApellidos());
             }else{
                 System.out.println("La dorsal no existe para ningun jugador");
             }
@@ -56,6 +64,7 @@ public class Programador {
         for (int contador = 0; contador < jugadorDB.size(); contador++){
             System.out.println("ingrese el Id a modificar:");
             int id = parseInt(inputData.nextLine());
+
             if(id == jugadorDB.get(contador).getId()){
                 System.out.println("id pertenece al Jugador:" + jugadorDB.get(contador).getNombre()
                                    + " " + jugadorDB.get(contador).getApellidos());
