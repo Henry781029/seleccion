@@ -2,6 +2,7 @@ package convocatoria;
 
 public class Jugador extends Seleccion{
     private int id;
+    private String comida;
 
     public Jugador(int id) {
         this.id = getId();
