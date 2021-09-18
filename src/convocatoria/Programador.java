@@ -1,5 +1,7 @@
 package convocatoria;
 
+import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import  java.util.Scanner;
@@ -88,49 +90,49 @@ public class Programador {
                             System.out.println("ingrese nueva Dorsal:");
                             int nuevaDorsal;
                             nuevaDorsal = parseInt(inputData.nextLine());
-                            jugadorDB.get(contador).setId(nuevaDorsal);
+                            jugadorDB.get(contador).setNro_camiseta(nuevaDorsal);
                             break;
                         case 2:
                             System.out.println("ingrese nuevo Nombre:");
                             String nuevoNombre;
                             nuevoNombre = inputData.nextLine();
-                            jugadorDB.get(contador).getNombre(nuevoNombre);
+                            jugadorDB.get(contador).setNombre(nuevoNombre);
                             break;
                         case 3:
                             System.out.println("ingrese nuevo Apellido:");
                             String nuevoApellido;
                             nuevoApellido = inputData.nextLine();
-                            jugadorDB.get(contador).getApellidos(nuevoApellido);
+                            jugadorDB.get(contador).setApellidos(nuevoApellido);
                             break;
                         case 4:
                             System.out.println("ingrese nueva Posición:");
                             String nuevaPosicion;
                             nuevaPosicion = inputData.nextLine();
-                            jugadorDB.get(contador).getPosicion(nuevaPosicion);
+                            jugadorDB.get(contador).setPosicion(nuevaPosicion);
                             break;
                         case 5:
                             System.out.println("ingrese nueva Edad:");
                             int nuevaEdad;
                             nuevaEdad = parseInt(inputData.nextLine());
-                            jugadorDB.get(contador).getEdad(nuevaEdad);
+                            jugadorDB.get(contador).setEdad(nuevaEdad);
                             break;
                         case 6:
                             System.out.println("ingrese nuevo Equipo:");
                             String nuevoEquipo;
                             nuevoEquipo = inputData.nextLine();
-                            jugadorDB.get(contador).getEquipo_actual(nuevoEquipo);
+                            jugadorDB.get(contador).setEquipo_actual(nuevoEquipo);
                             break;
                         case 7:
                             flag = false;
                             break;
                     }
-
-                    }
+                    break;
+                }
             }else{
                 System.out.println("Id de Jugador no Existe!!!");
             }
+            break;
         }
-
     }
 
     public int mostrarTablaJugadores(){
